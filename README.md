@@ -6,8 +6,12 @@
 
 步入正题，为什么改用issue写博客？
 
-- 看过大牛们的issue博客，效果还挺好，比如[fouber](https://github.com/fouber/blog)的，或者近几天[阿里无线前端的文章](https://github.com/amfe/article/issues/1)。不错的代码高亮，优秀的评论和通知系统，标签系统等等。
+- 看过大牛们的issue博客，效果还挺好，比如[fouber](https://github.com/fouber/blog)的，或者近几天看的[阿里无线前端的文章](https://github.com/amfe/article/issues/1)。不错的代码高亮，优秀的评论和通知系统，标签系统等等。
 - 知乎提问[如何评价用 Github issue 写博客](http://www.zhihu.com/question/32066000)，说的挺在理。
 - 明确写博客的初心是什么？是记录，是分享。所以内容是最重要的。而两年间隔几个月换皮肤，换布局，也是折腾累了。
 
 好吧，最大原因就是懒，所以，正式用issue写博客。
+
+## 博客列表
+
+1. [雅虎前端优化35条规则翻译](https://github.com/creeperyang/creeper-blog/issues/1)
