@@ -14,7 +14,4 @@
 
 ## 博客列表
 
-[所有文章](https://github.com/creeperyang/creeper-blog/issues)，以下是目录：
-
-1. [雅虎前端优化35条规则翻译](https://github.com/creeperyang/creeper-blog/issues/1)
-2. [JavaScript问题集锦](https://github.com/creeperyang/creeper-blog/issues/2)
+[所有文章](https://github.com/creeperyang/creeper-blog/issues)
