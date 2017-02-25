@@ -4,3 +4,4 @@
 4. [如何 hack Node.js 模块？](http://taobaofed.org/blog/2016/10/27/how-to-hack-nodejs-modules/)  `node.js/source-code/module`
 5. [Node.js定制REPL的妙用](https://cnodejs.org/topic/563735ed677332084c319d95) `node.js/repl`
 6. [Node.js源码阅读笔记](https://cattail.me/tech/2014/10/16/nodejs-source-reading-note.html) `node.js/source-code`
+7. [谷歌IO--V8之JavaScript性能](http://v8-io12.appspot.com/index.html)
