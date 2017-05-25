@@ -9,6 +9,7 @@
 5. [Node.js定制REPL的妙用](https://cnodejs.org/topic/563735ed677332084c319d95) `node.js/repl`
 6. [Node.js源码阅读笔记](https://cattail.me/tech/2014/10/16/nodejs-source-reading-note.html) `node.js/source-code`
 7. [谷歌IO--V8之JavaScript性能](http://v8-io12.appspot.com/index.html)
+8. [5 Easy Steps to Understanding JSON Web Tokens (JWT)](https://medium.com/vandium-software/5-easy-steps-to-understanding-json-web-tokens-jwt-1164c0adfcec) `jwt` *(简洁地介绍了jwt是什么，怎么生成，做什么。jwt：完全不负责数据的安全性，只用于校验用户的来源)*
 
 ### 网站
 
