@@ -1,0 +1,16 @@
+{
+  "name": "snabbdom-t",
+  "version": "0.6.7",
+  "description": "deep into snabbdom",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "webpack --display-modules --display-optimization-bailout"
+  },
+  "keywords": [],
+  "author": "creeperyang",
+  "license": "MIT",
+  "devDependencies": {
+    "html-webpack-plugin": "^2.28.0",
+    "webpack": "^3.0.0-rc.2"
+  }
+}
