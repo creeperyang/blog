@@ -1,14 +1,5 @@
-import h from '../src/h'
-import init from '../src/index'
-import propsModule from '../src/modules/props'
-import styleModule from '../src/modules/style'
-import classModule from '../src/modules/class'
-
-const patch = init([
-  classModule,
-  propsModule,
-  styleModule
-])
+const patch = snabbdom.patch
+const h = snabbdom.h
 
 const container = document.getElementById('container')
 
