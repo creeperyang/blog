@@ -292,7 +292,7 @@ export default function init(modules = [], domApi) {
       else if (isSameVnode(oldEndVnode, newStartVnode)) {
         patchVnode(oldEndVnode, newStartVnode, insertedVnodeQueue)
         // 这里是左移更新后的 dom，原因参考上面的右移。
-        api.insertBefore(parentElm, oldEndVnode.elm, api.nextSibling(oldStartVnode.elm))
+        api.insertBefore(parentElm, oldEndVnode.elm, oldStartVnode.elm)
         oldEndVnode = oldCh[--oldEndIdx]
         newStartVnode = newCh[++newStartIdx]
       }
