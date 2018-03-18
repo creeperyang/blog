@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        /* Basic Options */
+        "target": "es2015", /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'. */
+        "module": "es2015", /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
+        "lib": [
+            "es2015",
+            "dom"
+        ],
+        "declaration": true, /* Generates corresponding '.d.ts' file. */
+        "outDir": "./lib", /* Redirect output structure to the directory. */
+        "rootDir": "./src", /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
+        /* Strict Type-Checking Options */
+        "strict": true, /* Enable all strict type-checking options. */
+        "noImplicitAny": true, /* Raise error on expressions and declarations with an implied 'any' type. */
+        /* Additional Checks */
+        "noUnusedLocals": true, /* Report errors on unused locals. */
+        "noUnusedParameters": true /* Report errors on unused parameters. */
+    },
+    "exclude": [
+        "node_modules",
+        "test"
+    ]
+}
