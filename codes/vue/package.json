@@ -1,0 +1,20 @@
+{
+  "name": "vue-fake",
+  "version": "1.0.0",
+  "description": "vue insight",
+  "main": "src/core/index.js",
+  "scripts": {
+    "build": "rm -rf dist && babel src --out-dir dist"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.51",
+    "@babel/core": "^7.0.0-beta.51",
+    "@babel/plugin-transform-runtime": "^7.0.0-beta.51",
+    "@babel/preset-env": "^7.0.0-beta.51",
+    "@babel/preset-stage-2": "^7.0.0-beta.51"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.0.0-beta.51"
+  }
+}

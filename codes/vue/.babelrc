@@ -1,0 +1,19 @@
+{
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "modules": "commonjs",
+        "targets": {
+          "node": "current"
+        }
+      }
+    ],
+    ["@babel/preset-stage-2", {
+      "decoratorsLegacy": true
+    }]
+  ],
+  "plugins": [
+    "@babel/plugin-transform-runtime"
+  ]
+}
