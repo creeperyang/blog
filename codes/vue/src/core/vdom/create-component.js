@@ -1,10 +1,10 @@
 import VNode from './vnode'
 import {
   resolveConstructorOptions
-} from 'core/instance/init'
+} from '../instance/init'
 import {
   queueActivatedComponent
-} from 'core/observer/scheduler'
+} from '../observer/scheduler'
 import {
   createFunctionalComponent
 } from './create-functional-component'
@@ -34,7 +34,7 @@ import {
 import {
   isRecyclableComponent,
   renderRecyclableComponentTemplate
-} from 'weex/runtime/recycle-list/render-component-template'
+} from '../../platforms/weex/runtime/recycle-list/render-component-template'
 
 // inline hooks to be invoked on component VNodes during patch
 const componentVNodeHooks = {

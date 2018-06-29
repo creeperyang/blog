@@ -42,15 +42,18 @@ export function initLifecycle(vm) {
     while (parent.$options.abstract && parent.$parent) {
       parent = parent.$parent
     }
+    // 建立组件树
     parent.$children.push(vm)
   }
 
+  // 层级关系
   vm.$parent = parent
   vm.$root = parent ? parent.$root : vm
 
   vm.$children = []
   vm.$refs = {}
 
+  // 生命周期相关的属性
   vm._watcher = null
   vm._inactive = null
   vm._directInactive = false
@@ -324,8 +327,12 @@ export function deactivateChildComponent(vm, direct) {
   }
 }
 
+// 调用钩子函数
 export function callHook(vm, hook) {
   // #7573 disable dep collection when invoking lifecycle hooks
+  // 很有意思，主动把 Dep.target 置空，为什么？
+  // 防止数据的 getter 访问中再次收集依赖，造成可能的bug，如 <https://jsfiddle.net/sbmLobvr/9/>
+  // See <https://github.com/vuejs/vue/issues/7573>
   pushTarget()
   const handlers = vm.$options[hook]
   if (handlers) {
@@ -340,5 +347,6 @@ export function callHook(vm, hook) {
   if (vm._hasHookEvent) {
     vm.$emit('hook:' + hook)
   }
+  // 还原 Dep.target
   popTarget()
 }

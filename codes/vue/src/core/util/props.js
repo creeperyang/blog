@@ -146,10 +146,7 @@ function assertProp(
 
 const simpleCheckRE = /^(String|Number|Boolean|Function|Symbol)$/
 
-function assertType(value, type)
-
-
-{
+function assertType(value, type) {
   let valid
   const expectedType = getType(type)
   if (simpleCheckRE.test(expectedType)) {

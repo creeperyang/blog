@@ -1,7 +1,5 @@
-/*       */
-
-import { toNumber, toString, looseEqual, looseIndexOf } from 'shared/util'
-import { createTextVNode, createEmptyVNode } from 'core/vdom/vnode'
+import { toNumber, toString, looseEqual, looseIndexOf } from '../../../shared/util'
+import { createTextVNode, createEmptyVNode } from '../../vdom/vnode'
 import { renderList } from './render-list'
 import { renderSlot } from './render-slot'
 import { resolveFilter } from './resolve-filter'
@@ -11,7 +9,7 @@ import { renderStatic, markOnce } from './render-static'
 import { bindObjectListeners } from './bind-object-listeners'
 import { resolveScopedSlots } from './resolve-slots'
 
-export function installRenderHelpers (target     ) {
+export function installRenderHelpers (target) {
   target._o = markOnce
   target._n = toNumber
   target._s = toString

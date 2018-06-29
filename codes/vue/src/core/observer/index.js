@@ -182,11 +182,13 @@ export function defineReactive(
       const value = getter ? getter.call(obj) : val
       if (Dep.target) {
         dep.depend()
-        // 现在问题是为什么要依赖 childOb 呢？
-        // 考虑到如果 value 是数组，那么 value 的 push/shift 之类的操作，
+        // ⚠️ 现在问题是为什么要依赖 childOb 呢？
+        // （1）考虑到如果 value 是数组，那么 value 的 push/shift 之类的操作，
         // 是触发不了下面的 setter 的，即 dep.depend 在这种情况不会被调用。
         // 此时，childOb 即value这个数组对应的 ob，数组的操作会通知到childOb，
         // 所以可以替代 dep 来通知 watcher。
+        // （2）Vue.set/Vue.del API(即下面的set/del函数)中，如果直接把一个对象
+        // 设置成其它值，或者删除某个对象的key，这个时候也依赖 childOb 来通知。
         if (childOb) {
           childOb.dep.depend()
           // 同时，对数组元素的操作，需要通过 dependArray(value) 来建立依赖。

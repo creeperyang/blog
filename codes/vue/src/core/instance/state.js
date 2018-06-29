@@ -64,6 +64,9 @@ export function initState(vm) {
   }
 }
 
+// 根据 vm.$options.propsData (props的值) 和 vm.$options.props (需要的props的key)
+// 来创建 vm._props，并用 defineReactive 使 vm._props reactive。
+// 如果 vm 不是 root，关闭 observe（即不追踪 vm._props 的变化，因为 vm._props 不允许手动设置）。
 function initProps(vm, propsOptions) {
   const propsData = vm.$options.propsData || {}
   const props = vm._props = {}
@@ -112,11 +115,19 @@ function initProps(vm, propsOptions) {
   toggleObserving(true)
 }
 
+// 1. 计算获取data; 2. 设置vm._data = data
+// 3. proxy data访问（this.xxx -> this._data.xxx）
+// 4. observe data
 function initData(vm) {
   let data = vm.$options.data
+  // 问题所在 <https://jsfiddle.net/sbmLobvr/9/>
+  // getData 执行时，可能访问 props（父vm的data的属性被访问）；
+  // 此时，依赖被再次收集。
+  // 为什么会再次收集（没有除重）？因为
   data = vm._data = typeof data === 'function' ?
     getData(data, vm) :
     data || {}
+  // data 必须是对象
   if (!isPlainObject(data)) {
     data = {}
     process.env.NODE_ENV !== 'production' && warn(
@@ -154,6 +165,9 @@ function initData(vm) {
   observe(data, true /* asRootData */ )
 }
 
+// 用 data() 函数计算得到 data
+// 需注意⚠️：为什么要禁止依赖收集?
+// <https://github.com/vuejs/vue/pull/7596/commits/705a3a83a50c8c4a03df0bf1d9e56fac3ff949fd>
 export function getData(data, vm) {
   // #7573 disable dep collection when invoking data getters
   pushTarget()
@@ -296,6 +310,8 @@ function initWatch(vm, watch) {
   }
 }
 
+// 定义了原型上的 $set/$del/$watch 方法，
+// 及 $data（指向 _data）, $props (指向 _props)属性 getter，（没有 setter，不支持设置）
 function createWatcher(
   vm,
   expOrFn,

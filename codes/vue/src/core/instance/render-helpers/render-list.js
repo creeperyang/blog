@@ -1,19 +1,16 @@
-/*       */
-
-import { isObject, isDef } from 'core/util/index'
+import {
+  isObject,
+  isDef
+} from '../../util/index'
 
 /**
  * Runtime helper for rendering v-for lists.
  */
-export function renderList (
-  val     ,
-  render   
-             
-                                
-                  
-            
-)                {
-  let ret               , i, l, keys, key
+export function renderList(
+  val,
+  render
+) {
+  let ret, i, l, keys, key
   if (Array.isArray(val) || typeof val === 'string') {
     ret = new Array(val.length)
     for (i = 0, l = val.length; i < l; i++) {
@@ -33,7 +30,7 @@ export function renderList (
     }
   }
   if (isDef(ret)) {
-    (ret     )._isVList = true
+    (ret)._isVList = true
   }
   return ret
 }

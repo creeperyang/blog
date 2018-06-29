@@ -1,6 +1,6 @@
 /* not type checking this file because flow doesn't play well with Proxy */
 
-import config from 'core/config'
+import config from '../config'
 import { warn, makeMap, isNative } from '../util/index'
 
 let initProxy

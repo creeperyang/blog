@@ -1,6 +1,6 @@
 /*       */
 
-import { warn, extend, isPlainObject } from 'core/util/index'
+import { warn, extend, isPlainObject } from '../../util/index'
 
 export function bindObjectListeners (data     , value     )            {
   if (value) {

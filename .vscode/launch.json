@@ -9,6 +9,12 @@
             "request": "launch",
             "name": "测试 vue-observer",
             "program": "${workspaceFolder}/codes/vue/__test_observer.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "测试 vue",
+            "program": "${workspaceFolder}/codes/vue/__test_instance.js"
         }
     ]
 }

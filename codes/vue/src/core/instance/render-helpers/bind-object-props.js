@@ -1,24 +1,22 @@
-/*       */
-
-import config from 'core/config'
+import config from '../../config'
 
 import {
   warn,
   isObject,
   toObject,
   isReservedAttribute
-} from 'core/util/index'
+} from '../../util/index'
 
 /**
  * Runtime helper for merging v-bind="object" into a VNode's data.
  */
-export function bindObjectProps (
-  data     ,
-  tag        ,
-  value     ,
-  asProp         ,
-  isSync          
-)            {
+export function bindObjectProps(
+  data,
+  tag,
+  value,
+  asProp,
+  isSync
+) {
   if (value) {
     if (!isObject(value)) {
       process.env.NODE_ENV !== 'production' && warn(
@@ -39,9 +37,9 @@ export function bindObjectProps (
           hash = data
         } else {
           const type = data.attrs && data.attrs.type
-          hash = asProp || config.mustUseProp(tag, type, key)
-            ? data.domProps || (data.domProps = {})
-            : data.attrs || (data.attrs = {})
+          hash = asProp || config.mustUseProp(tag, type, key) ?
+            data.domProps || (data.domProps = {}) :
+            data.attrs || (data.attrs = {})
         }
         if (!(key in hash)) {
           hash[key] = value[key]

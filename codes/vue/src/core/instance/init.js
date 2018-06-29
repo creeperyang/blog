@@ -68,12 +68,20 @@ export function initMixin(Vue) {
     }
     // expose real self
     vm._self = vm
+    // 为lifecircle初始化一些属性，比如 _children, _watcher, _isMounted 等等
     initLifecycle(vm)
+    // 为event初始化一些属性，如 _events，_hasHookEvent 等
     initEvents(vm)
+    // 为render初始化一些属性，如 $slots，_c 等，并为 $attrs，$listeners 设置 getter/setter
     initRender(vm)
+    // 执行 beforeCreate 钩子
     callHook(vm, 'beforeCreate')
+    // 初始化 inject，和 provide 一起提供类似于 react context 的功能
     initInjections(vm) // resolve injections before data/props
+    // ⚠️ 重头戏来了！
+    // 处理 data 和 props
     initState(vm)
+    // 初始化 vm._provided，和 inject 一起提供类似于 react context 的功能
     initProvide(vm) // resolve provide after data/props
     callHook(vm, 'created')
 

@@ -1,6 +1,6 @@
 import {
   hasOwn
-} from 'shared/util'
+} from '../../shared/util'
 import {
   warn,
   hasSymbol

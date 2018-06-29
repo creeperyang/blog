@@ -1,16 +1,18 @@
-/*       */
-
-import { extend, warn, isObject } from 'core/util/index'
+import {
+  extend,
+  warn,
+  isObject
+} from '../../util/index'
 
 /**
  * Runtime helper for rendering <slot>
  */
-export function renderSlot (
-  name        ,
-  fallback               ,
-  props         ,
-  bindObject         
-)                {
+export function renderSlot(
+  name,
+  fallback,
+  props,
+  bindObject
+) {
   const scopedSlotFn = this.$scopedSlots[name]
   let nodes
   if (scopedSlotFn) { // scoped slot
@@ -43,7 +45,9 @@ export function renderSlot (
 
   const target = props && props.slot
   if (target) {
-    return this.$createElement('template', { slot: target }, nodes)
+    return this.$createElement('template', {
+      slot: target
+    }, nodes)
   } else {
     return nodes
   }

@@ -113,7 +113,7 @@ observer的相关代码在`core/observer`下，数据绑定的逻辑主要集中
     }
     get() {
       // 设置Dep.target，方便依赖收集时 dep.depend 可以正确调用
-      Dep.target = this
+      Dep.target = this;
       // 调用 expOrFn 来收集依赖
       const val = this.expOrFn.call(this.vm, this.vm)
     }
