@@ -1,7 +1,7 @@
 const { observe } = require('./dist/core/observer')
 const Watcher = require('./dist/core/observer/watcher').default
 
-function createWather(data, expOrFn, cb, options) {
+function createWatcher(data, expOrFn, cb, options) {
   const vm = {
     data: data || {},
     _watchers: []
@@ -17,7 +17,7 @@ const raw = {
   arr: [8, 9]
 }
 
-const w = createWather(raw, function () {
+const w = createWatcher(raw, function () {
   return this.data.arr
 }, (a, b) => {
   console.log('--->', a, b)
