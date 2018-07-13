@@ -1,6 +1,6 @@
-/*       */
-
-import { makeMap } from 'shared/util'
+import {
+  makeMap
+} from '../../../shared/util'
 
 // these are reserved for web because they are directly compiled away
 // during template compilation
@@ -8,7 +8,7 @@ export const isReservedAttr = makeMap('style,class')
 
 // attributes that should be using props for binding
 const acceptValue = makeMap('input,textarea,option,select,progress')
-export const mustUseProp = (tag        , type         , attr        )          => {
+export const mustUseProp = (tag, type, attr) => {
   return (
     (attr === 'value' && acceptValue(tag)) && type !== 'button' ||
     (attr === 'selected' && tag === 'option') ||
@@ -30,14 +30,14 @@ export const isBooleanAttr = makeMap(
 
 export const xlinkNS = 'http://www.w3.org/1999/xlink'
 
-export const isXlink = (name        )          => {
+export const isXlink = (name) => {
   return name.charAt(5) === ':' && name.slice(0, 5) === 'xlink'
 }
 
-export const getXlinkProp = (name        )         => {
+export const getXlinkProp = (name) => {
   return isXlink(name) ? name.slice(6, name.length) : ''
 }
 
-export const isFalsyAttrValue = (val     )          => {
+export const isFalsyAttrValue = (val) => {
   return val == null || val === false
 }

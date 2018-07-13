@@ -48,6 +48,7 @@ const componentVNodeHooks = {
       const mountedNode = vnode // work around flow
       componentVNodeHooks.prepatch(mountedNode, mountedNode)
     } else {
+      // child.$options._parentVnode 会被设置为 vnode
       const child = vnode.componentInstance = createComponentInstanceForVnode(
         vnode,
         activeInstance

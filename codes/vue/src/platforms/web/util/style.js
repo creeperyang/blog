@@ -1,6 +1,8 @@
-/*       */
-
-import { cached, extend, toObject } from 'shared/util'
+import {
+  cached,
+  extend,
+  toObject
+} from '../../../shared/util'
 
 export const parseStyleText = cached(function (cssText) {
   const res = {}
@@ -16,17 +18,17 @@ export const parseStyleText = cached(function (cssText) {
 })
 
 // merge static and dynamic style data on the same vnode
-function normalizeStyleData (data           )          {
+function normalizeStyleData(data) {
   const style = normalizeStyleBinding(data.style)
   // static style is pre-processed into an object during compilation
   // and is always a fresh object, so it's safe to merge into it
-  return data.staticStyle
-    ? extend(data.staticStyle, style)
-    : style
+  return data.staticStyle ?
+    extend(data.staticStyle, style) :
+    style
 }
 
 // normalize possible array / string values into Object
-export function normalizeStyleBinding (bindingStyle     )          {
+export function normalizeStyleBinding(bindingStyle) {
   if (Array.isArray(bindingStyle)) {
     return toObject(bindingStyle)
   }
@@ -40,7 +42,7 @@ export function normalizeStyleBinding (bindingStyle     )          {
  * parent component style should be after child's
  * so that parent component's style could override it
  */
-export function getStyle (vnode               , checkChild         )         {
+export function getStyle(vnode, checkChild) {
   const res = {}
   let styleData
 
@@ -69,4 +71,3 @@ export function getStyle (vnode               , checkChild         )         {
   }
   return res
 }
-

@@ -92,6 +92,7 @@ export function initMixin(Vue) {
       measure(`vue ${vm._name} init`, startTag, endTag)
     }
 
+    // 魔法的开端，web上会调用 lifecircle.js 的 mountComponent
     if (vm.$options.el) {
       vm.$mount(vm.$options.el)
     }

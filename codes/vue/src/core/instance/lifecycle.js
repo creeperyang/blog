@@ -30,6 +30,7 @@ import {
   validateProp
 } from '../util/index'
 
+// 当前处理（挂载/更新）的 vue 实例
 export let activeInstance = null
 export let isUpdatingChildComponent = false
 
@@ -65,22 +66,29 @@ export function initLifecycle(vm) {
 export function lifecycleMixin(Vue) {
   Vue.prototype._update = function (vnode, hydrating) {
     const vm = this
+    // 记录之前的 element， vnode 和 activeInstance
     const prevEl = vm.$el
     const prevVnode = vm._vnode
     const prevActiveInstance = activeInstance
     activeInstance = vm
+    // 把新 vnode 设置到 _vnode 属性上
     vm._vnode = vnode
     // Vue.prototype.__patch__ is injected in entry points
     // based on the rendering backend used.
+    // 第一次渲染
     if (!prevVnode) {
       // initial render
       vm.$el = vm.__patch__(vm.$el, vnode, hydrating, false /* removeOnly */ )
-    } else {
+    }
+    // 更新
+    else {
       // updates
       vm.$el = vm.__patch__(prevVnode, vnode)
     }
+    // 当前实例处理完，重置 activeInstance
     activeInstance = prevActiveInstance
     // update __vue__ reference
+    // 重置 __vue__（应该是帮助从dom找到对应的vm）
     if (prevEl) {
       prevEl.__vue__ = null
     }
@@ -195,6 +203,7 @@ export function mountComponent(
     }
   } else {
     updateComponent = () => {
+      // vm._render() 返回一棵 vnode 树
       vm._update(vm._render(), hydrating)
     }
   }
@@ -202,6 +211,8 @@ export function mountComponent(
   // we set this to vm._watcher inside the watcher's constructor
   // since the watcher's initial patch may call $forceUpdate (e.g. inside child
   // component's mounted hook), which relies on vm._watcher being already defined
+  // ⚠️ 核心地带，observer 和 render 在这里结合。
+  // updateComponent 作为 expOrFn 被执行，dom 被创建并真正 mount
   new Watcher(vm, updateComponent, noop, {
     before() {
       if (vm._isMounted) {

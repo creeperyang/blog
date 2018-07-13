@@ -1,10 +1,17 @@
-/*       */
-
 import Vue from 'core/index'
 import config from 'core/config'
-import { extend, noop } from 'shared/util'
-import { mountComponent } from 'core/instance/lifecycle'
-import { devtools, inBrowser, isChrome } from 'core/util/index'
+import {
+  extend,
+  noop
+} from 'shared/util'
+import {
+  mountComponent
+} from 'core/instance/lifecycle'
+import {
+  devtools,
+  inBrowser,
+  isChrome
+} from 'core/util/index'
 
 import {
   query,
@@ -15,7 +22,9 @@ import {
   isUnknownElement
 } from 'web/util/index'
 
-import { patch } from './patch'
+import {
+  patch
+} from './patch'
 import platformDirectives from './directives/index'
 import platformComponents from './components/index'
 
@@ -35,9 +44,9 @@ Vue.prototype.__patch__ = inBrowser ? patch : noop
 
 // public mount method
 Vue.prototype.$mount = function (
-  el                   ,
-  hydrating          
-)            {
+  el,
+  hydrating
+) {
   el = el && inBrowser ? query(el) : undefined
   return mountComponent(this, el, hydrating)
 }

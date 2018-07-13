@@ -1,8 +1,9 @@
-/*       */
+import {
+  isDef,
+  isObject
+} from '../../../shared/util'
 
-import { isDef, isObject } from 'shared/util'
-
-export function genClassForVnode (vnode               )         {
+export function genClassForVnode(vnode) {
   let data = vnode.data
   let parentNode = vnode
   let childNode = vnode
@@ -20,22 +21,22 @@ export function genClassForVnode (vnode               )         {
   return renderClass(data.staticClass, data.class)
 }
 
-function mergeClassData (child           , parent           )   
-                      
-            
-  {
+function mergeClassData(child, parent)
+
+
+{
   return {
     staticClass: concat(child.staticClass, parent.staticClass),
-    class: isDef(child.class)
-      ? [child.class, parent.class]
-      : parent.class
+    class: isDef(child.class) ?
+      [child.class, parent.class] :
+      parent.class
   }
 }
 
-export function renderClass (
-  staticClass         ,
-  dynamicClass     
-)         {
+export function renderClass(
+  staticClass,
+  dynamicClass
+) {
   if (isDef(staticClass) || isDef(dynamicClass)) {
     return concat(staticClass, stringifyClass(dynamicClass))
   }
@@ -43,11 +44,11 @@ export function renderClass (
   return ''
 }
 
-export function concat (a         , b         )         {
+export function concat(a, b) {
   return a ? b ? (a + ' ' + b) : a : (b || '')
 }
 
-export function stringifyClass (value     )         {
+export function stringifyClass(value) {
   if (Array.isArray(value)) {
     return stringifyArray(value)
   }
@@ -61,7 +62,7 @@ export function stringifyClass (value     )         {
   return ''
 }
 
-function stringifyArray (value            )         {
+function stringifyArray(value) {
   let res = ''
   let stringified
   for (let i = 0, l = value.length; i < l; i++) {
@@ -73,7 +74,7 @@ function stringifyArray (value            )         {
   return res
 }
 
-function stringifyObject (value        )         {
+function stringifyObject(value) {
   let res = ''
   for (const key in value) {
     if (value[key]) {
